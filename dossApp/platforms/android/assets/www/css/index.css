@@ -1,0 +1,447 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    font-family: 'codropsicons';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/codropsicons/codropsicons.eot');
+    src: url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'), url('../fonts/codropsicons/codropsicons.woff') format('woff'), url('../fonts/codropsicons/codropsicons.ttf') format('truetype'), url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*overflow: hidden;*/
+    overflow-x: hidden; 
+}
+
+body #primary{
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@keyframes circlerisingH {
+    0% { width: 52%;height: 70%;top: 34%;left: 24%; }
+    25% { width: 55%;height: 75%;top: 32%;left: 22%; }
+    50% { width: 58%;height: 80%;top: 30%;left: 21%; }
+    75% { width: 55%;height: 75%;top: 32%;left: 22%; }
+    100% { width: 52%;height: 70%;top: 34%;left: 24%;}
+}
+
+@keyframes circlerisingV {
+    0% { width: 45%;height: 61%;top: 38%;left: 27%;}
+    25% {width: 52%;height: 70%;top: 34%;left: 24%;}
+    50% {width: 55%;height: 75%;top: 32%;left: 22%;}
+    75% {width: 52%;height: 70%;top: 34%;left: 24%;}
+    100% {width: 45%;height: 61%;top: 38%;left: 27%;}
+}
+
+@keyframes rotateLogo {
+    from { transform: rotate(0deg);}
+    to {   transform: rotate(360deg);}
+}
+
+#loader-home img {
+    margin-top: 30%; 
+    animation-name: rotateLogo;
+    animation-duration: 10s; 
+    animation-iteration-count: infinite;       
+}
+
+#loader-home #vertical-circle {
+    border: 3px solid #F7863B;
+    width: 45%;
+    height: 56%;    
+    top: 41%;
+    left: 27%;
+    animation-name: circlerisingV;
+    animation-duration: 3s; 
+    animation-iteration-count: infinite;       
+}
+
+#loader-home #horizontal-circle {
+    border: 4px solid #340E69;
+    width: 52%;
+    height: 70%; 
+    top: 34%;
+    left: 24%;
+    animation-name: circlerisingH;
+    animation-duration: 2s; 
+    animation-iteration-count: infinite;             
+}
+
+#loader-home .circle-animate {
+    display: block;
+    position: absolute;
+    border-radius: 50%;    
+}
+
+#primary {
+    height: 600px;
+    background-color: #7EA6E0;
+    color: white;
+    margin-top: 52px;
+}
+
+#bottom_navbar {
+    background-color: #340E69;
+    border-color: #584B4B;   
+    z-index: 5; 
+}
+
+#bottom_navbar p.navbar-text {
+    color: #7D2EE8;
+    margin-top:6px;
+}
+
+#bottom_navbar p.navbar-text button.selected{
+    color: white;
+    border-bottom: 3px solid #F7863B;
+}
+
+#bottom_navbar button {
+    background-color: #340E69;
+    border:none;
+    font-size: 25px;
+    outline: none;
+}
+
+#bottom_navbar button:focus, #bottom_navbar button:active, #bottom_navbar button:visited {
+    border:none;
+}
+
+#bottom_navbar a {
+    color: #7D2EE8;
+}
+
+#primary .like .glyphicon {
+    font-size: 30px;
+    color: white;
+}
+
+#primary .like i.fa {
+    font-size: 35px;
+    color: white;
+    margin-bottom: 5px;    
+}
+
+#song_history {
+    padding-bottom: 30px;
+}
+
+#song_history .line_song_history {
+    padding: 18px 33px;
+}
+
+#song_history .line_song_history.liked {   
+    background-color: #337ab7;
+}
+
+#song_history .line_song_history.disliked {   
+    background-color: #B73933;
+}
+
+#song_history .line_song_history .song_name {
+    margin-left: 7px;
+}
+
+#song_history .line_song_history .vote_date{
+    font-style: italic;
+}
+
+#daily_song_page #cercle-like {
+    background-color: #337ab7;
+    border: 2px solid #0F1A94;
+}
+
+#daily_song_page #cercle-dislike {
+    background-color: #B73933;
+    border: 2px solid #7D280F;
+}
+
+#loader .glyphicon {
+    font-size: 40px;
+}
+
+#loader {
+    padding-top: 120px; 
+}
+
+#primary .like a:hover .glyphicon {
+/*    font-size: 45px;
+    color: white;*/
+}
+
+#alert_model {
+    position: absolute;
+    top:53px;
+    width: 100%;
+    z-index: 1;
+}
+
+#loader-success .glyphicon {
+    font-size: 40px;
+}
+
+#loader-success {
+    padding-top: 120px; 
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.navbar {
+    position: relative;
+}
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -20px !important;  /* 50% of your logo width */
+    display: block;
+    max-width: 50px;
+    margin-top:-14px;
+}
+
+#primary .well_custom {
+    background-color: #eee;
+    width: 40%;
+    border-radius: 32px;
+    font-size: 20px;
+    padding: 13px 0px;    
+}
+
+#mynavbar{
+    margin-bottom: 0px;
+    background-color: #F7863B;
+    border-color: rgba(179, 170, 66, 0.85);
+    position: fixed;
+    top: 0px;
+    width: 100%; 
+    z-index: 3;   
+}
+
+#mynavbar button {
+    background-color: #031546;
+}
+
+#mynavbar a {
+    color: black;
+}
+
+#main_page .play {
+    background-image: url('../img/albums.jpg')
+}
+
+#play_icon{
+    font-size: 160px;
+}
+
+#start_button {
+    border-radius: 2px;
+    border-color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#start_button:hover {
+    text-decoration: none;
+}
+
+span.circle-nb {
+    font-size: 20px;
+}
+
+.circle {
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 20% 0px;
+    width: 70%;
+    height: 70%;
+    margin-left: 15%;
+}
+
+#main_page .stats {
+    padding-top: 30px;
+    background-color: #7EA6E0;
+    border-top: 3px solid blue;
+}
+
+.circle-yellow {
+    background-color: #FFD966;
+}
+.circle-green {
+    background-color: #67AB9F;    
+}
+.circle-red {
+    background-color: #EA6B66;   
+}
+
+
+/*#start_button span.glyphicon {
+    font-size: 51px;
+    position: relative;
+    top: 31px;
+    left: -5px;
+    color: #7D2EE8;   
+}*/
+
+#myhistory_button {
+    margin-top: 1px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    background-color: #745492;
+    border-radius: 2px;
+    border-color: black;  
+    /*background-color: rgba(247, 59, 59, 1);  */
+    background-color: #262626;  
+    font-size: 20px;    
+}
+#myhistory_button span.glyphicon {
+    font-size: 51px;
+    position: relative;
+    top: 31px;
+    left: -5px;
+    color: #B91111;   
+}
+
+#animatedModal #closebt-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;    
+}
+
+#animatedModal .comments{
+    margin-top: 30px;
+}
+
+#daily_song_page #animatedModal{
+    background-color: rgb(244, 67, 54);
+}
+
+#animatedModal .comment{
+    padding: 15px;
+    background-color: brown;
+}
+
+#animatedModal .add_comment textarea {
+    margin-top: 20px;
+    border-radius: 0;
+}
+
+#commentsModal {
+    position: fixed;
+    top: 13px;
+    right: 0px;
+    z-index: 4;
+    border: none;
+}
+
+#comments_img {
+    width: 64px;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}

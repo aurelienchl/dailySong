@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="lib/ClickEffects/css/component.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--         <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/icons.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="css/demo.css"> -->
+        <icon src="img/logo.png" platform="android" density="ldpi" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Daily Song</title>
+    </head>
+    <body>
+        <nav id="mynavbar" class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img class="brand" src="img/logo.png">
+                    </a>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div id="primary">
+            <div id="alert_model" class="alert alert-dismissible hidden" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong class="msg-type">Warning!</strong> <span class="msg-alert">Better check yourself, you're not looking too good.</span>
+            </div>            
+            <div id="main_page" class="row page animated hidden">
+                <div class="col-xs-12 play text-center">
+                    <a id="start_button" href="#" class="icobutton icobutton--play-circle">
+                        <!-- <img src="img/play.png" class="img-responsive" id="play_icon" /> -->
+                        <i class="fa fa-play-circle" id="play_icon"></i>
+                    </a>
+                </div>
+                <div class="col-xs-12 stats">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <div class="circle circle-yellow">
+                                <span id="users_cpt" class="circle-nb">35</span>
+                            </div>
+                            <span class="under-circle-text">Users</span>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <div class="circle circle-red">
+                                <span id="songs_cpt" class="circle-nb">35</span>
+                            </div>
+                            <span class="under-circle-text">Songs</span>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <div class="circle circle-green">
+                                <span id="votes_cpt" class="circle-nb">35</span>
+                            </div>
+                            <span class="under-circle-text">Votes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="daily_song_page" class="row hidden page animated">
+                <!--Call your modal-->
+                <a id="commentsModal" href="#animatedModal" class="btn"><img id="comments_img" src="img/comments_icon_5.png"></a>
+
+                <!--commentsModal-->
+                <div id="animatedModal">
+                    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+                    <div id="closebt-container" class="close-animatedModal">
+                        <img class="closebt" src="img/closebt.svg">
+                    </div>
+                    <div class="comments">
+                        <div class="comment comment_model hidden">
+                            <p>Belle musique, tfkldjglkjfd dfgjkhfdkj jlfhgkdhk kuhfdkghk kjdhfkjhds</p>
+                        </div>
+                    </div>
+                    <div class="add_comment text-right">
+                        <textarea class="form-control" rows="3"></textarea>
+                        <a href="#" id="submit_comment" class="btn btn-primary">Submit</a>
+                    </div>                    
+                </div>
+                <!-- end modal -->
+                <div class="col-xs-12">
+                    <iframe id="daySong" width="" height="" src="http://www.dailymotion.com/embed/video/xd0xj0" frameborder="0" allowfullscreen></iframe>  
+                    <input id="song_id" type="hidden" value="" />             
+                </div>
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="row like">
+                        <div class="col-xs-6 text-center">
+                            <a data-value="1" data-uuid="">
+                                <i class="fa fa-thumbs-up"></i>
+                            </a>
+                            <br>
+                            <div id="cercle-like" class="well_custom center-block">
+                                <span id="likes_nb"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <a data-value="0" data-uuid="">
+                                <i class="fa fa-thumbs-down"></i>
+                            </a>
+                            <br>
+                            <div id="cercle-dislike" class="well_custom center-block">
+                                <span id="dislikes_nb"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="debug_div" class="col-xs-12 well hidden">
+                    <p></p>
+                </div>
+            </div>
+            <div id="song_history" class="row hidden page animated">
+                <div class="col-xs-12 model_song_history hidden">
+                    <span class="vote_like"><span class="glyphicon"></span></span>
+                    <span class="song_name">Black M - Dans ma rue</span>
+                    <span class="vote_date pull-right">Hier</span>
+                </div>
+            </div>
+            <div id="loader" class="row hidden">
+                <div class="col-xs-12 text-center">
+                    <!-- <span class="glyphicon glyphicon-refresh spinning"></span>                      -->
+                    <img src="img/Preloader_3.gif" />
+                </div>
+            </div>
+            <div id="loader-success" class="row hidden">
+                <div class="col-xs-12 text-center">
+                    <span class="glyphicon glyphicon-ok"></span>                     
+                </div>
+            </div> 
+            <div id="loader-home" class="row">
+                <div class="col-xs-12 text-center">
+                    <div id="horizontal-circle" class="circle-animate"></div>
+                    <div id="vertical-circle" class="circle-animate"></div>
+                    <img src="img/logo.png" />                    
+                </div>
+            </div>             
+            <nav id="bottom_navbar" class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                    <p class="navbar-text">
+                        <span class="pull-left">
+                            <button id="home_button" class="selected" data-target="main_page">
+                                <span class="glyphicon glyphicon-home"></span>
+                            </button>
+                        </span>
+                        <span class="pull-right">
+                            <button id="history_button" data-target="song_history">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+            </nav>                       
+        </div>
+
+        <!-- input hidden -->
+        <input type="hidden" id="uuid" value="" />
+
+        <!-- js -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/animatedModal.min.js"></script>
+        <script type="text/javascript" src="lib/ClickEffects/js/classie.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
