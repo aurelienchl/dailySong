@@ -226,7 +226,7 @@ body #primary{
 #primary .well_custom {
     background-color: #eee;
     width: 40%;
-    border-radius: 32px;
+    border-radius: 50%;
     font-size: 20px;
     padding: 13px 0px;    
 }
