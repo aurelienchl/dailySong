@@ -146,11 +146,11 @@ body #primary{
 }
 
 #song_history {
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 #song_history .line_song_history {
-    padding: 18px 33px;
+    padding: 27px 33px;
 }
 
 #song_history .line_song_history.liked {   

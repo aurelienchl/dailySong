@@ -10,7 +10,7 @@ $(function(){
 		switchPage('main_page');
 	}, 4000);
 
-	$("#commentsModal").animatedModal({'color' : '#442D2C'});
+	$("#commentsModal").animatedModal({'color' : '#442D2C', 'overflow' : 'scroll'});
 
 	$('#start_button').click(function(){
 		width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -78,6 +78,7 @@ $(function(){
 	});
 
 	$('#home_button').click(function(){
+		$('#primary').css('background-color', '#7EA6E0');
 		switchPage('main_page');
 	});
 
@@ -140,8 +141,10 @@ function switchPage(pageID){
 	$('#bottom_navbar button').each(function(){
 		if( $(this).hasClass('selected') ) $(this).removeClass('selected');
 	});
+	if( $('#loader').hasClass('hidden') === false )
+		$('#loader').addClass('hidden');
 	if( $('#loader-home').hasClass('hidden') === false )
-		$('#loader-home').addClass('hidden');
+		$('#loader-home').addClass('hidden');	
 	$('[data-target="' + pageID + '"]').addClass('selected');
 }
 
